@@ -67,7 +67,8 @@ export class App {
         'Romantik & Chemie',
         'Handlung',
         'Spannung',
-        'Kreativität'
+        'Kreativität',
+        'Emotionale Wirkung'
       ],
 
       'Roman': [
