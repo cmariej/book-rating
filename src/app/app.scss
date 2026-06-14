@@ -1,0 +1,357 @@
+$background: #f8f5f1;
+$card: #ffffff;
+$primary: #8b6f47;
+$primary-light: #d6c2a8;
+$text: #2f2a25;
+$text-light: #6f675f;
+$border: #ece5dd;
+$accent: #c49b66;
+
+:host {
+  display: block;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f9f6f2 0%,
+      #f3eee7 100%
+    );
+
+  color: #2d2a26;
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+h1 {
+  text-align: center;
+
+  margin-bottom: 2rem;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  font-weight: 700;
+
+  color: #3c3126;
+
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   Genre Auswahl
+   ========================= */
+
+.genre-selector {
+  margin-bottom: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.genre-selector label {
+  font-weight: 600;
+  color: #6a5a4d;
+}
+
+.genre-selector select {
+  width: 100%;
+  max-width: 350px;
+
+  padding: 0.9rem 1rem;
+
+  border: 1px solid #dfd4c8;
+  border-radius: 16px;
+
+  background: white;
+
+  font-size: 1rem;
+
+  transition: all 0.2s ease;
+}
+
+.genre-selector select:focus {
+  outline: none;
+
+  border-color: #b18b60;
+
+  box-shadow:
+    0 0 0 4px rgba(177, 139, 96, 0.15);
+}
+
+/* =========================
+   Tabelle
+   ========================= */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 1.25rem;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.04),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+td {
+  border: none;
+  padding: 0;
+}
+
+td:first-child {
+  flex: 1;
+}
+
+td:last-child {
+  width: 100px;
+}
+
+/* =========================
+   Kriterien
+   ========================= */
+
+.criterion-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.criterion-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2f2a25;
+}
+
+/* =========================
+   Info Button
+   ========================= */
+
+.info-button {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #e8dccd;
+
+  color: #7b5f3c;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.info-button:hover {
+  background: #c7a57a;
+  color: white;
+
+  transform: scale(1.08);
+}
+
+/* =========================
+   Beschreibung
+   ========================= */
+
+.info-panel {
+  margin-top: 1rem;
+
+  padding: 1rem 1.25rem;
+
+  background: #fbf8f5;
+
+  border-left: 4px solid #c7a57a;
+  border-radius: 12px;
+
+  white-space: pre-line;
+
+  color: #5f564d;
+
+  line-height: 1.7;
+
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Bewertungsauswahl
+   ========================= */
+
+td select {
+  width: 100%;
+
+  padding: 0.8rem;
+
+  border: 1px solid #dfd4c8;
+  border-radius: 14px;
+
+  background: white;
+
+  text-align: center;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+
+td select:focus {
+  outline: none;
+
+  border-color: #b18b60;
+
+  box-shadow:
+    0 0 0 4px rgba(177, 139, 96, 0.15);
+}
+
+/* =========================
+   Ergebniskarte
+   ========================= */
+
+.result {
+  margin-top: 2rem;
+
+  padding: 2rem;
+
+  border-radius: 28px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.05),
+    0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.result h2 {
+  margin-bottom: 1rem;
+
+  color: #3c3126;
+}
+
+.average {
+  color: #76695c;
+
+  font-size: 1rem;
+}
+
+.stars {
+  margin: 1rem 0;
+
+  font-size: clamp(2.5rem, 7vw, 4rem);
+
+  line-height: 1;
+}
+
+.rating-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  color: #b18b60;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 768px) {
+
+  tr {
+    flex-direction: column;
+  }
+
+  td:last-child {
+    width: 100%;
+  }
+
+  td select {
+    width: 100%;
+  }
+
+  .result {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .criterion-name {
+    font-size: 1rem;
+  }
+
+  .stars {
+    font-size: 2.5rem;
+  }
+
+  .info-panel {
+    font-size: 0.9rem;
+  }
+}
+
+.hint {
+  padding: 1rem;
+
+  border-radius: 12px;
+
+  background: #fff8e8;
+  border: 1px solid #f0d999;
+
+  color: #8a6b1f;
+
+  font-weight: 500;
+}

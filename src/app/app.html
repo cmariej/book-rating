@@ -1,0 +1,121 @@
+<div class="container">
+
+  <h1>📚 Buchbewertung</h1>
+
+  <div class="genre-selector">
+
+    <label for="genre">
+      Genre
+    </label>
+
+    <select
+      id="genre"
+      [(ngModel)]="selectedGenre"
+      (change)="onGenreChange()">
+
+      @for (genre of genres; track genre) {
+
+        <option [value]="genre">
+          {{ genre }}
+        </option>
+
+      }
+
+    </select>
+
+  </div>
+
+  <table>
+
+    <tbody>
+
+      @for (criterion of criteria; track criterion.name) {
+
+        <tr>
+
+          <td>
+
+            <div class="criterion-label">
+
+              <span class="criterion-name">
+                {{ criterion.name }}
+              </span>
+
+              <button
+                type="button"
+                class="info-button"
+                (click)="toggleInfo(criterion)">
+
+                {{ criterion.expanded ? '×' : '?' }}
+
+              </button>
+
+            </div>
+
+            @if (criterion.expanded) {
+
+              <div class="info-panel">
+                {{ criterion.description }}
+              </div>
+
+            }
+
+          </td>
+
+          <td>
+
+            <select [(ngModel)]="criterion.value">
+
+              <option [ngValue]="null">
+                -
+              </option>
+
+              <option [ngValue]="1">1</option>
+              <option [ngValue]="2">2</option>
+              <option [ngValue]="3">3</option>
+              <option [ngValue]="4">4</option>
+              <option [ngValue]="5">5</option>
+
+            </select>
+
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+  <div class="result">
+
+    <h2>Gesamtbewertung</h2>
+
+    @if (!allRated) {
+
+      <div class="hint">
+
+        Bitte bewerte zunächst alle Kriterien.
+
+      </div>
+
+    } @else {
+
+      <div class="average">
+        Durchschnitt: {{ average }}/5
+      </div>
+
+      <div class="stars">
+        {{ rating }}
+      </div>
+
+      <div class="rating-text">
+        {{ ratingText }}
+      </div>
+
+    }
+
+  </div>
+
+</div>
